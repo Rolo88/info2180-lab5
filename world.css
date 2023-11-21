@@ -39,8 +39,7 @@ input {
   border-radius: 8px;
 }
 
-#lookup{
-
+#lookup, #city{
   border-radius: 8px;
   background-color: rgb(11, 141, 11);
   font-weight: 700;
@@ -48,6 +47,10 @@ input {
   font-size: 16px;
   border: none;
   color: white;
+}
+#city{
+  margin-left: 12px;
+  background-color: rgb(103, 103, 238);
 }
 
 
