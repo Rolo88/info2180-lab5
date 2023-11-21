@@ -15,12 +15,23 @@ if(isset($_GET['country'])) {
     $stmt = $conn->query("SELECT * FROM countries WHERE name LIKE '%$country%';");
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-
-    $countryTable= '<ul>';
+    $countryTable = '<table>
+    <tr>
+    <th>Country Name</th>
+    <th>Continent</th>
+    <th>Independence Year</th>
+    <th>Head of State</th>
+    </tr>';
+    
     foreach ($results as $row) {
-        $countryTable .= '<li>' . $row['name'] . ' is ruled by ' . $row['head_of_state'] . '</li>';
+        $countryTable .= '<tr>';
+        $countryTable .= '<td>' . $row['name'] . '</td>';
+        $countryTable .= '<td>' . $row['continent'] . '</td>';
+        $countryTable .= '<td>' . $row['independence_year'] . '</td>';
+        $countryTable .= '<td>' . $row['head_of_state'] . '</td>';
+        $countryTable .= '</tr>';
     }
-    $countryTable .= '</ul>';
+    $countryTable .= '</table>';
 
     echo json_encode($countryTable);
     exit;
